@@ -20,8 +20,10 @@ def scrape_all():
         "news_paragraph": news_paragraph,
         "featured_image": featured_image(browser),
         "facts": mars_facts(),
-        "last_modified": dt.datetime.now()
+        "last_modified": dt.datetime.now(), 
+        "hemispheres" : hemisphere_data(browser)
     }
+
 
     # Stop webdriver and return data
     browser.quit()
@@ -55,6 +57,79 @@ def mars_news(browser):
         return None, None
     
     return news_title, news_p
+
+#Scrape hemisphere data
+def hemisphere_data(browser):
+    # Visit URL
+    url = 'https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
+    browser.visit(url)
+
+    #Empty list
+    hemisphere_image_urls = []
+
+    #Cerberus
+    browser.links.find_by_partial_text('Cerberus').click()
+    html = browser.html
+    cerberus_soup = soup(html, 'html.parser')
+    cerberus_url = cerberus_soup.select_one('div.downloads a').get("href")
+    cerberus_title = cerberus_soup.select_one('h2', class_="title").text
+
+    #dictionary:
+    cerberus_dict = {
+            "img_url": cerberus_url,
+            "title": cerberus_title
+        }
+
+    hemisphere_image_urls.append(cerberus_dict)
+
+    #Schiaparelli
+    browser.links.find_by_partial_text('Schiaparelli').click()
+    html = browser.html
+    schiaparelli_soup = soup(html, 'html.parser')
+    schiaparelli_url = schiaparelli_soup.select_one('div.downloads a').get("href")
+    schiaparelli_title = schiaparelli_soup.select_one('h2', class_="title").text
+
+    #dictionary:
+    schiaparelli_dict = {
+            "img_url": schiaparelli_url,
+            "title": schiaparelli_title
+        }
+
+    hemisphere_image_urls.append(schiaparelli_dict)
+
+    #Syrtis
+    browser.links.find_by_partial_text('Syrtis').click()
+    html = browser.html
+    syrtis_soup = soup(html, 'html.parser')
+    syrtis_url = syrtis_soup.select_one('div.downloads a').get("href")
+    syrtis_title = syrtis_soup.select_one('h2', class_="title").text
+
+    #dictionary:
+    syrtis_dict = {
+            "img_url": syrtis_url,
+            "title": syrtis_title
+        }
+
+    hemisphere_image_urls.append(syrtis_dict)
+
+    #Valles
+    browser.links.find_by_partial_text('Valles').click()
+    html = browser.html
+    valles_soup = soup(html, 'html.parser')
+    valles_url = valles_soup.select_one('div.downloads a').get("href")
+    valles_title = valles_soup.select_one('h2', class_="title").text
+
+    #dictionary:
+    valles_dict = {
+            "img_url": valles_url,
+            "title": valles_title
+        }
+
+    hemisphere_image_urls.append(valles_dict)
+
+
+    return hemisphere_image_urls
+
 
 #Scrape Featured Image
 def featured_image(browser):
