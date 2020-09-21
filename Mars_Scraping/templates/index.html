@@ -13,7 +13,7 @@
   <body>
     <div class="container">
       <!-- Add Jumbotron to Header -->
-      <div class="jumbotron text-center" style="background-color: #eea586">
+      <div class="jumbotron text-center" style="background-color: #f3d6ca">
         <h1 style="color: #d16b3b">Mission to Mars</h1>
         <!-- Add a button to activate scraping script -->
         <p><a class="btn btn-danger btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
@@ -47,9 +47,10 @@
 
         <div class="col-md-4">
           <!-- Mars Facts -->
-          <div class="row" id="mars-facts">
+          <div class="row" id="mars-facts" >
             <h2>Mars Facts</h2>
-             <table border="5" class="dataframe table table-condensed">{{ mars.facts | safe }}</table>
+             <table border="5"  style="background-color: #f3d6ca" class="dataframe table table-striped" 
+             src="{{ mars.facts | safe }}"></table>
           </div>
         </div>
       </div>
