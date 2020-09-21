@@ -62,12 +62,12 @@ def mars_news(browser):
 def hemisphere_data(browser):
     # Visit URL
     url = 'https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
-    browser.visit(url)
 
     #Empty list
     hemisphere_image_urls = []
 
     #Cerberus
+    browser.visit(url)
     browser.links.find_by_partial_text('Cerberus').click()
     html = browser.html
     cerberus_soup = soup(html, 'html.parser')
@@ -83,6 +83,7 @@ def hemisphere_data(browser):
     hemisphere_image_urls.append(cerberus_dict)
 
     #Schiaparelli
+    browser.visit(url)
     browser.links.find_by_partial_text('Schiaparelli').click()
     html = browser.html
     schiaparelli_soup = soup(html, 'html.parser')
@@ -98,6 +99,7 @@ def hemisphere_data(browser):
     hemisphere_image_urls.append(schiaparelli_dict)
 
     #Syrtis
+    browser.visit(url)
     browser.links.find_by_partial_text('Syrtis').click()
     html = browser.html
     syrtis_soup = soup(html, 'html.parser')
@@ -113,6 +115,7 @@ def hemisphere_data(browser):
     hemisphere_image_urls.append(syrtis_dict)
 
     #Valles
+    browser.visit(url)
     browser.links.find_by_partial_text('Valles').click()
     html = browser.html
     valles_soup = soup(html, 'html.parser')
