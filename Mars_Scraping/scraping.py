@@ -72,7 +72,7 @@ def hemisphere_data(browser):
     html = browser.html
     cerberus_soup = soup(html, 'html.parser')
     cerberus_url = cerberus_soup.select_one('div.downloads a').get("href")
-    cerberus_title = cerberus_soup.select_one('h2', class_="title").text
+    cerberus_title = cerberus_soup.select_one('div.content h2').text
 
     #dictionary:
     cerberus_dict = {
@@ -88,7 +88,7 @@ def hemisphere_data(browser):
     html = browser.html
     schiaparelli_soup = soup(html, 'html.parser')
     schiaparelli_url = schiaparelli_soup.select_one('div.downloads a').get("href")
-    schiaparelli_title = schiaparelli_soup.select_one('h2', class_="title").text
+    schiaparelli_title = schiaparelli_soup.select_one('div.content h2').text
 
     #dictionary:
     schiaparelli_dict = {
@@ -104,7 +104,7 @@ def hemisphere_data(browser):
     html = browser.html
     syrtis_soup = soup(html, 'html.parser')
     syrtis_url = syrtis_soup.select_one('div.downloads a').get("href")
-    syrtis_title = syrtis_soup.select_one('h2', class_="title").text
+    syrtis_title = syrtis_soup.select_one('div.content h2').text
 
     #dictionary:
     syrtis_dict = {
@@ -120,7 +120,7 @@ def hemisphere_data(browser):
     html = browser.html
     valles_soup = soup(html, 'html.parser')
     valles_url = valles_soup.select_one('div.downloads a').get("href")
-    valles_title = valles_soup.select_one('h2', class_="title").text
+    valles_title = valles_soup.select_one('div.content h2').text
 
     #dictionary:
     valles_dict = {
