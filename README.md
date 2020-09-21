@@ -14,6 +14,11 @@ For this project I am using:
 -	**Flask** to render the data and create a web application [app.py](Mars_Scraping/app.py).
 -	**HTML**, **CSS** and **Bootstrap 3** to customize web application [index.html](Mars_Scraping/templates/index.html).
 
+<p align="center">  
+<img src="Graphics/Mars.PNG" width="70%" height="70%">
+</p>
+
+
 ## Resources
 
 Data Source:
