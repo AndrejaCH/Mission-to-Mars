@@ -3,7 +3,7 @@
 
 ## Project Overview
 
-In this project I am performing web scraping form active **Nasa’s** websites in order to retrieve information about Nasa’s latest article, featured picture, Mars facts and images of Mars Hemispheres. All retrieved data are put together in a single web application to showcase the gathered information.
+In this project I am performing web scraping from active **Nasa’s** websites in order to retrieve information about Nasa’s latest article, featured picture, Mars facts and images of Mars Hemispheres. All retrieved data are put together in a single web application to showcase the gathered information.
 
 For this project I am using: 
 
